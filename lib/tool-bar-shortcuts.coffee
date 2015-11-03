@@ -3,75 +3,71 @@ module.exports =
         @toolBar?.removeItems()
 
     config:
-        toggles:
-            type: 'object'
-            order: 1
-            properties:
-                openFile:
-                    title: 'Show Open File'
-                    description: 'Show or hide the open file icon'
-                    type: 'boolean'
-                    default: true
-                openFolder:
-                    title: 'Show Open Folder'
-                    description: 'Show or hide the open folder icon'
-                    type: 'boolean'
-                    default: true
-                gitProjects:
-                    title: 'Show Git Projects'
-                    description: 'Show or hide the git projects icon'
-                    type: 'boolean'
-                    default: false
-                unGit:
-                    title: 'Show Ungit'
-                    description: 'Show or hide the ungit icon'
-                    type: 'boolean'
-                    default: false
-                terminalPlus:
-                    title: 'Show Terminal Plus'
-                    description: 'Show or hide the terminal plus icon'
-                    type: 'boolean'
-                    default: false
-                splitRight:
-                    title: 'Show Split Right'
-                    description: 'Show or hide the split right icon'
-                    type: 'boolean'
-                    default: true
-                splitDown:
-                    title: 'Show Split Down'
-                    description: 'Show or hide the split down icon'
-                    type: 'boolean'
-                    default: true
-                commentLine:
-                    title: 'Show Comment Line'
-                    description: 'Show or hide the comment line icon'
-                    type: 'boolean'
-                    default: true
-                fullScreen:
-                    title: 'Show Full Screen'
-                    description: 'Show or hide the full screen icon'
-                    type: 'boolean'
-                    default: true
-                treeView:
-                    title: 'Show Treeview'
-                    description: 'Show or hide the treeview icon'
-                    type: 'boolean'
-                    default: true
-                miniMap:
-                    title: 'Show Minimap'
-                    description: 'Show or hide the minimap icon'
-                    type: 'boolean'
-                    default: true
-                settings:
-                    title: 'Show Settings'
-                    description: 'Show or hide the settings icon'
-                    type: 'boolean'
-                    default: true
-                reload:
-                    title: 'Show Reload'
-                    description: 'Show or hide the reload icon'
-                    type: 'boolean'
-                    default: true
+        openFile:
+            title: 'Show Open File'
+            description: 'Show or hide the open file icon'
+            type: 'boolean'
+            default: true
+        openFolder:
+            title: 'Show Open Folder'
+            description: 'Show or hide the open folder icon'
+            type: 'boolean'
+            default: true
+        gitProjects:
+            title: 'Show Git Projects'
+            description: 'Show or hide the git projects icon'
+            type: 'boolean'
+            default: false
+        unGit:
+            title: 'Show Ungit'
+            description: 'Show or hide the ungit icon'
+            type: 'boolean'
+            default: false
+        terminalPlus:
+            title: 'Show Terminal Plus'
+            description: 'Show or hide the terminal plus icon'
+            type: 'boolean'
+            default: false
+        splitRight:
+            title: 'Show Split Right'
+            description: 'Show or hide the split right icon'
+            type: 'boolean'
+            default: true
+        splitDown:
+            title: 'Show Split Down'
+            description: 'Show or hide the split down icon'
+            type: 'boolean'
+            default: true
+        commentLine:
+            title: 'Show Comment Line'
+            description: 'Show or hide the comment line icon'
+            type: 'boolean'
+            default: true
+        fullScreen:
+            title: 'Show Full Screen'
+            description: 'Show or hide the full screen icon'
+            type: 'boolean'
+            default: true
+        treeView:
+            title: 'Show Treeview'
+            description: 'Show or hide the treeview icon'
+            type: 'boolean'
+            default: true
+        miniMap:
+            title: 'Show Minimap'
+            description: 'Show or hide the minimap icon'
+            type: 'boolean'
+            default: true
+        settings:
+            title: 'Show Settings'
+            description: 'Show or hide the settings icon'
+            type: 'boolean'
+            default: true
+        reload:
+            title: 'Show Reload'
+            description: 'Show or hide the reload icon'
+            type: 'boolean'
+            default: true
 
     consumeToolBar: (toolBar) ->
         @toolBar = toolBar 'tool-bar-besser'
