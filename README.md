@@ -50,7 +50,9 @@ apm install tool-bar-shortcuts
 
 ## TODO
 
-Add package settings to toggle (and maybe reorder) toolbar items
+- [x] Create package settings to choose wich items you want to show in the toolbar.
+- [ ] Change package settings to reorder toolbar items (including separators).
+- [ ] Reload the toolbar on settings change.
 
 ## License
 
