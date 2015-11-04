@@ -72,8 +72,8 @@ module.exports =
     consumeToolBar: (toolBar) ->
         @toolBar = toolBar 'tool-bar-besser'
 
-        openFile = atom.config.get('tool-bar-shortcuts.toggles.openFile')
-        openFolder = atom.config.get('tool-bar-shortcuts.toggles.openFolder')
+        openFile = atom.config.get('tool-bar-shortcuts.openFile')
+        openFolder = atom.config.get('tool-bar-shortcuts.openFolder')
 
         if openFile
             @toolBar.addButton
@@ -92,8 +92,8 @@ module.exports =
         if openFile or openFolder
             @toolBar.addSpacer()
 
-        gitProjects = atom.config.get('tool-bar-shortcuts.toggles.gitProjects')
-        unGit = atom.config.get('tool-bar-shortcuts.toggles.unGit')
+        gitProjects = atom.config.get('tool-bar-shortcuts.gitProjects')
+        unGit = atom.config.get('tool-bar-shortcuts.unGit')
 
         if gitProjects and atom.packages.loadedPackages['git-projects']
             @toolBar.addButton
@@ -112,7 +112,7 @@ module.exports =
         if unGit or gitProjects
             @toolBar.addSpacer()
 
-        terminalPlus = atom.config.get('tool-bar-shortcuts.toggles.terminalPlus')
+        terminalPlus = atom.config.get('tool-bar-shortcuts.terminalPlus')
 
         if terminalPlus and atom.packages.loadedPackages['terminal-plus']
             @toolBar.addButton
@@ -123,8 +123,8 @@ module.exports =
 
             @toolBar.addSpacer()
 
-        splitRight = atom.config.get('tool-bar-shortcuts.toggles.splitRight')
-        splitDown = atom.config.get('tool-bar-shortcuts.toggles.splitDown')
+        splitRight = atom.config.get('tool-bar-shortcuts.splitRight')
+        splitDown = atom.config.get('tool-bar-shortcuts.splitDown')
 
         if splitRight
             @toolBar.addButton
@@ -143,7 +143,7 @@ module.exports =
         if splitRight or splitDown
             @toolBar.addSpacer()
 
-        commentLine = atom.config.get('tool-bar-shortcuts.toggles.commentLine')
+        commentLine = atom.config.get('tool-bar-shortcuts.commentLine')
 
         if commentLine
             @toolBar.addButton
@@ -154,9 +154,9 @@ module.exports =
 
             @toolBar.addSpacer()
 
-        fullScreen = atom.config.get('tool-bar-shortcuts.toggles.fullScreen')
-        treeView = atom.config.get('tool-bar-shortcuts.toggles.treeView')
-        miniMap = atom.config.get('tool-bar-shortcuts.toggles.miniMap')
+        fullScreen = atom.config.get('tool-bar-shortcuts.fullScreen')
+        treeView = atom.config.get('tool-bar-shortcuts.treeView')
+        miniMap = atom.config.get('tool-bar-shortcuts.miniMap')
 
         if fullScreen
             @toolBar.addButton
@@ -182,7 +182,7 @@ module.exports =
         if fullScreen or treeView or miniMap
             @toolBar.addSpacer()
 
-        settings = atom.config.get('tool-bar-shortcuts.toggles.settings')
+        settings = atom.config.get('tool-bar-shortcuts.settings')
 
         if settings
             @toolBar.addButton
@@ -193,7 +193,7 @@ module.exports =
 
             @toolBar.addSpacer()
 
-        reload = atom.config.get('tool-bar-shortcuts.toggles.reload')
+        reload = atom.config.get('tool-bar-shortcuts.reload')
 
         if reload
             @toolBar.addButton
