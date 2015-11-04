@@ -23,6 +23,11 @@ module.exports =
             description: 'Show or hide the ungit icon'
             type: 'boolean'
             default: false
+        blame:
+            title: 'Show Blame'
+            description: 'Show or hide the blame icon'
+            type: 'boolean'
+            default: false
         terminalPlus:
             title: 'Show Terminal Plus'
             description: 'Show or hide the terminal plus icon'
@@ -43,6 +48,16 @@ module.exports =
             description: 'Show or hide the comment line icon'
             type: 'boolean'
             default: true
+        commentBlock:
+            title: 'Show Block Comment'
+            description: 'Show or hide the block comment icon'
+            type: 'boolean'
+            default: true
+        markdownPreview:
+            title: 'Show Markdown Preview'
+            description: 'Show or hide the markdown preview icon'
+            type: 'boolean'
+            default: true
         fullScreen:
             title: 'Show Full Screen'
             description: 'Show or hide the full screen icon'
@@ -61,6 +76,11 @@ module.exports =
         settings:
             title: 'Show Settings'
             description: 'Show or hide the settings icon'
+            type: 'boolean'
+            default: true
+        devTools:
+            title: 'Show Dev Tools'
+            description: 'Show or hide the dev tools icon'
             type: 'boolean'
             default: true
         reload:
@@ -94,6 +114,7 @@ module.exports =
 
         gitProjects = atom.config.get('tool-bar-shortcuts.gitProjects')
         unGit = atom.config.get('tool-bar-shortcuts.unGit')
+        blame = atom.config.get('tool-bar-shortcuts.blame')
 
         if gitProjects and atom.packages.loadedPackages['git-projects']
             @toolBar.addButton
@@ -109,7 +130,13 @@ module.exports =
                 tooltip: 'Ungit'
                 iconset: 'fa'
 
-        if unGit or gitProjects
+        if blame and atom.packages.loadedPackages['blame']
+            @toolBar.addButton
+                icon: 'organization'
+                callback: 'blame:toggle'
+                tooltip: 'Ungit'
+
+        if unGit or gitProjects or blame
             @toolBar.addSpacer()
 
         terminalPlus = atom.config.get('tool-bar-shortcuts.terminalPlus')
@@ -144,6 +171,8 @@ module.exports =
             @toolBar.addSpacer()
 
         commentLine = atom.config.get('tool-bar-shortcuts.commentLine')
+        commentBlock = atom.config.get('tool-bar-shortcuts.commentBlock')
+        markdownPreview = atom.config.get('tool-bar-shortcuts.markdownPreview')
 
         if commentLine
             @toolBar.addButton
@@ -152,6 +181,21 @@ module.exports =
                 tooltip: 'Line Comments'
                 iconset: 'ion'
 
+        if commentBlock
+            @toolBar.addButton
+                icon: 'quote'
+                callback: 'block-comment:toggle'
+                tooltip: 'Line Comments'
+                iconset: 'ion'
+
+        if markdownPreview
+            @toolBar.addButton
+                icon: 'social-markdown'
+                callback: 'markdown-preview:toggle'
+                tooltip: 'Show Markdown Preview'
+                iconset: 'ion'
+
+        if commentLine or commentBlock or markdownPreview
             @toolBar.addSpacer()
 
         fullScreen = atom.config.get('tool-bar-shortcuts.fullScreen')
@@ -183,6 +227,7 @@ module.exports =
             @toolBar.addSpacer()
 
         settings = atom.config.get('tool-bar-shortcuts.settings')
+        devTools = atom.config.get('tool-bar-shortcuts.devTools')
 
         if settings
             @toolBar.addButton
@@ -191,6 +236,14 @@ module.exports =
                 tooltip: 'Open Settings View'
                 iconset: 'fa'
 
+        if devTools
+            @toolBar.addButton
+                icon: 'bug'
+                callback: 'window:toggle-dev-tools'
+                tooltip: 'Open Dev Tools'
+                iconset: 'fa'
+
+        if settings and devTools
             @toolBar.addSpacer()
 
         reload = atom.config.get('tool-bar-shortcuts.reload')
