@@ -4,6 +4,11 @@
 
 An atom-tool-bar plugin that adds many commonly used actions in the tool-bar.
 
+## Missing packages or shortcuts
+Please let me know by reporting an issue (or create a pull-request). They will be added to toolbar.
+
+## Look and options
+
 This is just a preview of how it can look.
 
 ![screenshot](https://raw.githubusercontent.com/JostCrow/atom-toolbar-shortcuts/master/screenshot.png)

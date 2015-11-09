@@ -1,3 +1,6 @@
+{CompositeDisposable} = require 'atom'
+ToolBarButtonView = require 'tool-bar/lib/tool-bar-button-view'
+
 module.exports =
     deactivate: ->
         @toolBar?.removeItems()
@@ -90,24 +93,38 @@ module.exports =
             default: true
 
     consumeToolBar: (toolBar) ->
-        @toolBar = toolBar 'tool-bar-besser'
+        file =
+            icon: 'file-text'
+            callback: 'application:open-file'
+            tooltip: 'Open File'
+            iconset: 'fa'
+
+        fileView = new ToolBarButtonView file
+
+        folder =
+            icon: 'folder-open'
+            callback: 'application:open-folder'
+            tooltip: 'Open Folder'
+            iconset: 'fa'
+
+        atom.config.onDidChange 'tool-bar-shortcuts.openFile', (event) =>
+            console.log(event)
+            console.log(@toolBar)
+            if event.newValue
+                @toolBar.toolBar.addItem(fileView)
+            else
+                @toolBar.toolBar.removeItem(file)
+
+        @toolBar = toolBar 'tool-bar-shortcuts'
 
         openFile = atom.config.get('tool-bar-shortcuts.openFile')
         openFolder = atom.config.get('tool-bar-shortcuts.openFolder')
 
         if openFile
-            @toolBar.addButton
-                icon: 'file-text'
-                callback: 'application:open-file'
-                tooltip: 'Open File'
-                iconset: 'fa'
+            @toolBar.addButton file
 
         if openFolder
-            @toolBar.addButton
-                icon: 'folder-open'
-                callback: 'application:open-folder'
-                tooltip: 'Open Folder'
-                iconset: 'fa'
+            @toolBar.addButton folder
 
         if openFile or openFolder
             @toolBar.addSpacer()
